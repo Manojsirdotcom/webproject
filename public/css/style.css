@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "piazzolla", serif;
+
+}
+
+:root{
+    --main-bg : #1e272e;
+    --main-color: #0097e6;
+}
+html{
+    font-size: 62.5%;
+}
+.row{
+    margin: 0;
+}
+.main-menu{
+    background-color: skyblue;
+}
+.navbar {
+    color: #fff;
+    background-color: skyblue;
+    padding: 2rem 0;
+}

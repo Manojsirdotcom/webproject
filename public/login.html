@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+
+    <style>
+        body{
+    background-color: rgba(0, 183, 255, 0.432);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+   
+}
+#form-container{
+    background-color: white;
+    padding: 50px;
+    text-align: center;
+    
+}
+h2{
+    margin: 0px 0px 10px 0px;
+}
+input{
+    width: 200px;
+    margin: 10px 0px ;
+    padding: 10px;
+}
+#btn{
+    width: 222px;
+    background-color: blue;
+    border: 0px;
+    color: white;
+    
+}
+.error{
+    color: red;
+    margin: 0px;
+    text-align: left;
+}
+
+
+/* #passworderror{
+    color: yellow;
+    margin: 0px;
+    text-align: left;
+}
+#usererror{
+    color: red;
+    margin: 0px;
+    text-align: right;
+} */
+    </style>
+</head>
+<body>
+    <div id="form-container">
+        <h2>login</h2>
+        <form action="" onsubmit="return validateFrom()">
+            <input type="text" placeholder="username" id="username" >
+            <p id="usererror" class="error" ></p>
+            <input type="password" placeholder="password" id="password">
+            <p id="passworderror" class="error" ></p>
+            <button id="btn">submit</button>
+        </form>
+    </div>
+
+    <script>
+        let username = document.getElementById("username");
+        let password = document.getElementById("password");
+        let flag = 1;
+
+            function validateFrom(){
+               if(username.value == ""){
+                   document.getElementById("usererror").innerHTML = "user name is empty";
+                   flag = 0;
+               }else if(username.value.length < 3){
+                document.getElementById("usererror").innerHTML = "user name is require min 3 char";
+                flag = 0;
+               }else{
+                document.getElementById("usererror").innerHTML = "";
+                flag = 1;
+               }
+
+               if(password.value == ""){
+                   document.getElementById("passworderror").innerHTML = "password is empty";
+                   flag = 0;
+               }else{
+                   document.getElementById("password").innerHTML = "";
+                   flag = 1
+               }
+               
+               if(flag){
+                   return true;
+               }else{
+                   return false;
+               }
+            }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word counter</title>
+    <style>
+        body{
+            padding: 50px 100px;
+        }
+        h1{
+            text-align: center;
+            background-color: darkkhaki;
+            color: white;
+            margin: 0px;
+            padding: 10px;
+        }
+        #textbox{
+            width: 99.3%;
+            border-color:#0067b0;
+            font-size: 20px; 
+        }
+        p{
+            text-align: center;
+            background-color: #0067b0;
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            padding: 11px;
+            margin: 0px;
+        }
+        .btn{
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border: solid grey 2px;
+            border-radius: 50%;
+            cursor: pointer;
+
+        }
+        #yellow{
+            background-color: yellow;
+
+        }
+        #aqua{
+            background-color: aqua;
+
+        }
+        #violet{
+            background-color: violet;
+
+        }
+        #black{
+
+            background-color: black;
+        }
+        #color-switcher{
+            text-align: right;
+
+        }
+     
+    </style>
+</head>
+<body>
+    <div id="color-switcher">
+        <span class="btn" id="yellow" onclick="changeBg('yellow')"></span>
+        <span class="btn" id="aqua" onclick="changeBg('#7fffd4')"></span>
+        <span class="btn" id="violet" onclick="changeBg('#ce9aff')"></span>
+        <span class="btn" id="black" onclick="changeBg('#000000')"></span>
+    </div>
+    <h1>word and character counter</h1>
+    <textarea  id="textbox" cols="30" rows="10"></textarea>
+    <p>
+        <span id="word">0 </span>words and
+        <span id="char">0 </span>character
+    </p>
+
+    <script>
+
+        let text = document.getElementById('textbox');
+        text.addEventListener("input",function(){
+            let text = this.value;
+            let char = text.length;
+            document.getElementById("char").innerHTML = char;
+
+            text = text.trim();
+            let word = text.split(" ");
+            let cleanlist = word.filter(function(elm){
+                return elm != "";
+            });
+            
+            console.log();
+            document.getElementById("word").innerHTML = cleanlist.length;
+            });
+
+            function changeBg(color){
+            document.body.style.backgroundColor = color;
+            
+        }
+
+
+
+    
+    </script>
+</body>
+</html>
